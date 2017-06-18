@@ -13,6 +13,8 @@ import KIF
 
 class ConcreteKIFTest: KIFTestCase {
   
+  var navigationC = UINavigationController()
+  
   override func setUp() {
     super.setUp()
     
@@ -40,29 +42,6 @@ class ConcreteKIFTest: KIFTestCase {
     tester().waitForView(withAccessibilityLabel: "pullDetail_cell")
   }
   
-  func testInfinityScrollFeedScreen(){
-    let storyboard = UIStoryboard(name: "Main",
-                                  bundle: Bundle.main)
-    let navigationC = storyboard.instantiateInitialViewController() as! UINavigationController
-    let initialVC   = navigationC.viewControllers[0] as! ViewController
-    
-    let _ = navigationC.view
-    let _ = initialVC.view
-    let mainTableView = initialVC.mainTableView
-    
-    tester().waitForCell(at: IndexPath(row: 1, section: 0), inTableViewWithAccessibilityIdentifier: "mainTableView")
-    
-    tester().run { (error) -> KIFTestStepResult in
-      mainTableView?.contentOffset.y -= 100.0
-      
-      if ((mainTableView?.contentOffset.y)! > CGFloat(8000.0)){
-        return KIFTestStepResult.success
-      }
-      return KIFTestStepResult.wait
-    }
-    
-    
-  }
   
   
   

@@ -37,7 +37,9 @@ class PullReqTVCell: UITableViewCell {
     authorUsername.text = pullObj.user?.login
     authorFullName.text = pullObj.created_at?.strDatePt()
     
-    authorPicture.sd_setHighlightedImage(with: URL(string: (pullObj.user?.avatar_url)!)!, options: SDWebImageOptions(rawValue: 0)) { (image, error, cacheType, url) in
+    SDImageCache.shared().shouldCacheImagesInMemory = false
+    
+    authorPicture.sd_setHighlightedImage(with: URL(string: (pullObj.user?.avatar_url)!)!, options: SDWebImageOptions.continueInBackground) { (image, error, cacheType, url) in
       if ((image) != nil){
         self.authorPicture.image = image
       }

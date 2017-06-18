@@ -40,15 +40,12 @@ class FeedRepoTVCell: UITableViewCell {
     numStar.text = repo.stargazers_count?.toString()
     numForks.text = repo.forks_count?.toString()
     
+    SDImageCache.shared().shouldCacheImagesInMemory = false
     userPicture.sd_setHighlightedImage(with: URL(string: (repo.owner?.avatar_url)!)!, options: SDWebImageOptions(rawValue: 0)) { (image, error, cacheType, url) in
       if ((image) != nil){
         self.userPicture.image = image
       }
     }
-    
-    
-    //imageView.sd_setShowActivityIndicatorView(true)
-    //imageView.sd_setIndicatorStyle(.Gray)
     
   }
 
