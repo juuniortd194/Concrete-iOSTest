@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (4.4.0)
+  - KIF (3.5.2):
+    - KIF/Core (= 3.5.2)
+  - KIF/Core (3.5.2)
+  - NVActivityIndicatorView (3.6.1)
+  - ObjectMapper (2.2.6)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - KIF
+  - NVActivityIndicatorView
+  - ObjectMapper (~> 2.2)
+  - SDWebImage (~> 3.8)
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  KIF: f2a6025bb3f11692df675054a134d43a9ec2d7db
+  NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
+  ObjectMapper: '042708195cc46c20871cbcbec0453826398273fd'
+  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+
+PODFILE CHECKSUM: 5de2c5a1626e4976f93d9021368faa2a16cf49a0
+
+COCOAPODS: 1.2.1
