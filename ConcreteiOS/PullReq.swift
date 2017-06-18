@@ -13,6 +13,7 @@ import ObjectMapper
 class PullReq: Mappable {
   
   var url: String?
+  var html_url: String?
   var id: Int?
   var state: String?
   var locked: Bool?
@@ -34,6 +35,7 @@ class PullReq: Mappable {
   
   func mapping(map: Map) {
     url              <- map["url"]
+    html_url         <- map["html_url"]
     id        		   <- map["id"]
     state        	   <- map["state"]
     locked        	 <- map["locked"]

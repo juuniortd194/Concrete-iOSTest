@@ -88,5 +88,13 @@ class DetailRepoVC: UIViewController, UITableViewDelegate, UITableViewDataSource
   
   // MARK: - TableViewDelegate
   
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let pullSelected = dataPullList[indexPath.row]
+    if let url = URL(string: pullSelected.html_url!) {
+      UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
+        
+      })
+    }
+  }
 
 }
