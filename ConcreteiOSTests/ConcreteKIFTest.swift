@@ -7,13 +7,15 @@
 //
 
 import XCTest
+@testable import ConcreteiOS
+
 import KIF
 
 class ConcreteKIFTest: KIFTestCase {
   
   override func setUp() {
     super.setUp()
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
   }
   
   override func tearDown() {
@@ -39,6 +41,26 @@ class ConcreteKIFTest: KIFTestCase {
   }
   
   func testInfinityScrollFeedScreen(){
+    let storyboard = UIStoryboard(name: "Main",
+                                  bundle: Bundle.main)
+    let navigationC = storyboard.instantiateInitialViewController() as! UINavigationController
+    let initialVC   = navigationC.viewControllers[0] as! ViewController
+    
+    let _ = navigationC.view
+    let _ = initialVC.view
+    let mainTableView = initialVC.mainTableView
+    
+    tester().waitForCell(at: IndexPath(row: 1, section: 0), inTableViewWithAccessibilityIdentifier: "mainTableView")
+    
+    tester().run { (error) -> KIFTestStepResult in
+      mainTableView?.contentOffset.y -= 100.0
+      
+      if ((mainTableView?.contentOffset.y)! > CGFloat(8000.0)){
+        return KIFTestStepResult.success
+      }
+      return KIFTestStepResult.wait
+    }
+    
     
   }
   
